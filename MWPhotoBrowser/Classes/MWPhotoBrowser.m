@@ -186,6 +186,7 @@
         _nextButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:[NSString stringWithFormat:arrowPathFormat, @"Right"]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextPage)];
         [_nextButton setTintColor:[UIColor whiteColor]];
     }
+    [UIButton appearance].tintColor = UIColor.whiteColor;
     if (self.displayActionButton) {
         _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
     }
