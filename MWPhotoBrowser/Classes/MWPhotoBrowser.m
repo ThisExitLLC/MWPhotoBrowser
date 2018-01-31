@@ -184,7 +184,6 @@
         _previousButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:[NSString stringWithFormat:arrowPathFormat, @"Left"]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(gotoPreviousPage)];
         _nextButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:[NSString stringWithFormat:arrowPathFormat, @"Right"]] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(gotoNextPage)];
     }
-    [UIButton appearance].tintColor = UIColor.whiteColor;
     if (self.displayActionButton) {
         _actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonPressed:)];
     }
@@ -201,7 +200,6 @@
     
 	// Super
     [super viewDidLoad];
-	
 }
 
 - (void)performLayout {
@@ -242,7 +240,7 @@
             [newBackButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateNormal];
             [newBackButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
         }
-        _previousViewControllerBackButton = previousViewController.navigationItem.backBarButtonItem; // remember previous
+         _previousViewControllerBackButton = previousViewController.navigationItem.backBarButtonItem; // remember previous
         previousViewController.navigationItem.backBarButtonItem = newBackButton;
     }
 
@@ -391,6 +389,8 @@
         }
         _viewHasAppearedInitially = YES;
     }
+    _previousUIButtonTintColor = [UIButton appearance].tintColor;
+    [UIButton appearance].tintColor = UIColor.whiteColor;
 
 }
 
@@ -421,7 +421,8 @@
     if (!_leaveStatusBarAlone && fullScreen && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [[UIApplication sharedApplication] setStatusBarStyle:_previousStatusBarStyle animated:animated];
     }
-    
+    [UIButton appearance].tintColor = _previousUIButtonTintColor;
+
 	// Super
 	[super viewWillDisappear:animated];
     
