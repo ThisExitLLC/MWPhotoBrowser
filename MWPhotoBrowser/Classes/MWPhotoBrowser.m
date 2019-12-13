@@ -224,6 +224,7 @@
             [_doneButton setBackgroundImage:nil forState:UIControlStateHighlighted barMetrics:UIBarMetricsLandscapePhone];
             [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateNormal];
             [_doneButton setTitleTextAttributes:[NSDictionary dictionary] forState:UIControlStateHighlighted];
+            _doneButton.tintColor = [UIColor whiteColor];
         }
         self.navigationItem.rightBarButtonItem = _doneButton;
     } else {
