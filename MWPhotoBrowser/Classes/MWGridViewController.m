@@ -120,10 +120,14 @@
     [self performLayout]; // needed for iOS 5 & 6
 }
 
+-(BOOL)isOrientationPortrait {
+    return self.view.bounds.size.width > self.view.bounds.size.height;
+}
+
 #pragma mark - Layout
 
 - (CGFloat)getColumns {
-    if ((UIInterfaceOrientationIsPortrait(self.interfaceOrientation))) {
+    if ([self isOrientationPortrait]) {
         return _columns;
     } else {
         return _columnsL;
@@ -131,7 +135,7 @@
 }
 
 - (CGFloat)getMargin {
-    if ((UIInterfaceOrientationIsPortrait(self.interfaceOrientation))) {
+    if ([self isOrientationPortrait]) {
         return _margin;
     } else {
         return _marginL;
@@ -139,7 +143,7 @@
 }
 
 - (CGFloat)getGutter {
-    if ((UIInterfaceOrientationIsPortrait(self.interfaceOrientation))) {
+    if ([self isOrientationPortrait]) {
         return _gutter;
     } else {
         return _gutterL;
