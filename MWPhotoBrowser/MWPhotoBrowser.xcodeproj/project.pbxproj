@@ -479,10 +479,11 @@
 			};
 			buildConfigurationList = 4C6F96BE14AF704100F8389A /* Build configuration list for PBXProject "MWPhotoBrowser" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 4C6F96B914AF704100F8389A;
 			productRefGroup = 4C6F96C514AF704100F8389A /* Products */;
