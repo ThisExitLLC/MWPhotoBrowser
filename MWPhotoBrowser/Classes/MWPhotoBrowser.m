@@ -1000,7 +1000,7 @@
     if (@available(iOS 11.0, *)) {
         //Account for possible notch
         UIEdgeInsets safeArea = [[UIApplication sharedApplication] keyWindow].safeAreaInsets;
-        height = height - safeArea.bottom;
+        height = height + safeArea.bottom;
     }
 	return CGRectIntegral(CGRectMake(0, self.view.bounds.size.height - height, self.view.bounds.size.width, height));
 }
