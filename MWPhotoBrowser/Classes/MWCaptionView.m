@@ -77,16 +77,8 @@ static const CGFloat labelPadding = 10;
     _label.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     _label.opaque = NO;
     _label.backgroundColor = [UIColor clearColor];
-    if (SYSTEM_VERSION_LESS_THAN(@"6")) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        _label.textAlignment = UITextAlignmentCenter;
-        _label.lineBreakMode = UILineBreakModeWordWrap;
-#pragma clang diagnostic pop
-    } else {
-        _label.textAlignment = NSTextAlignmentCenter;
-        _label.lineBreakMode = NSLineBreakByWordWrapping;
-    }
+    _label.textAlignment = NSTextAlignmentCenter;
+    _label.lineBreakMode = NSLineBreakByWordWrapping;
 
     _label.numberOfLines = 0;
     _label.textColor = [UIColor whiteColor];

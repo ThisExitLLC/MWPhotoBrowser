@@ -82,7 +82,7 @@
     _currentGridContentOffset = CGPointMake(0, CGFLOAT_MAX);
     _didSavePreviousStateOfNavBar = NO;
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
-        self.automaticallyAdjustsScrollViewInsets = NO;
+        _pagingScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
     // Listen for MWPhoto notifications
@@ -151,6 +151,7 @@
 	// View
 	self.view.backgroundColor = [UIColor blackColor];
     self.view.clipsToBounds = YES;
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
 	
 	// Setup paging scrolling view
 	CGRect pagingScrollViewFrame = [self frameForPagingScrollView];
@@ -267,7 +268,7 @@
     }
 
     // Middle - Nav
-    if (_previousButton && _nextButton && numberOfPhotos > 1) {
+    if (_previousButton && _nextButton && numberOfPhotos > 0) {
         hasItems = YES;
         [items addObject:flexSpace];
         [items addObject:_previousButton];
@@ -1093,7 +1094,7 @@
 	} else {
 		self.title = nil;
 	}
-	
+ 	
 	// Buttons
 	_previousButton.enabled = (_currentPageIndex > 0);
 	_nextButton.enabled = (_currentPageIndex < numberOfPhotos - 1);
